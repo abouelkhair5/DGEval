@@ -11,5 +11,8 @@ We have provided a python file for each model/dataset combination we did in orde
 ```
 python <model>-<dataset>.py
 ```
-
+For example for the TGN model with the wikipedia dataset you can run 
+```
+python tgn-wikipedia.py
+```
 ## References
