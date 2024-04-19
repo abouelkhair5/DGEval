@@ -192,18 +192,21 @@ val_aps = []
 val_aucs = []
 test_aps = []
 test_aucs = []
+for run in trange(0, 10, desc="Runs"):
+    for epoch in trange(1, 51, desc="Epochs", leave=False):
+        loss = train()
+        tqdm.write(f'Epoch: {epoch:02d}, Loss: {loss:.4f}')
+        val_ap, val_auc = test(val_loader)
+        test_ap, test_auc = test(test_loader)
+        tqdm.write(f'Val AP: {val_ap:.4f}, Val AUC: {val_auc:.4f}')
+        tqdm.write(f'Test AP: {test_ap:.4f}, Test AUC: {test_auc:.4f}')
 
-for epoch in tqdm(range(1, 51)):
-    loss = train()
-    print(f'Epoch: {epoch:02d}, Loss: {loss:.4f}')
-    val_ap, val_auc = test(val_loader)
-    test_ap, test_auc = test(test_loader)
+    tqdm.write(f'Final Epoch: Val AP: {val_ap:.4f}, Val AUC: {val_auc:.4f}')
+    tqdm.write(f'Final Epoch: Test AP: {test_ap:.4f}, Test AUC: {test_auc:.4f}')
     val_aps.append(val_ap)
     val_aucs.append(val_aucs)
     test_aps.append(test_ap)
     test_aucs.append(test_auc)
-    print(f'Val AP: {val_ap:.4f}, Val AUC: {val_auc:.4f}')
-    print(f'Test AP: {test_ap:.4f}, Test AUC: {test_auc:.4f}')
 
 print('Average Metrics between runs')
 print(f'Val AP: {np.average(val_aps):.4f} +/- {np.std(val_aps):.4f}, Val AUC: {np.average(val_aucs):.4f} +/- {np.std(val_aucs):.4f}')
