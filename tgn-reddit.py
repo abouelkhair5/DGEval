@@ -27,7 +27,7 @@ from torch_geometric.nn.models.tgn import (
     LastNeighborLoader,
 )
 
-from tqdm import tqdm
+from tqdm import tqdm, trange
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 

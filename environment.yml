@@ -1,0 +1,16 @@
+name: tgn
+channels:
+  - defaults
+  - conda-forge
+  - nvidia
+dependencies:
+  - pandas==1.1.0
+  - pytorch
+  - scikit-learn
+  - cuda
+  - pytorch-cuda=12.1
+  - torchaudio
+  - torchvision
+  - cudatoolkit=11.1
+  - pyg
+prefix: /home/aabouelk/anaconda3/envs/tgn

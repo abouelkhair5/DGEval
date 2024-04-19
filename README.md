@@ -1,9 +1,9 @@
 # DGEval
 ## Setting up the environment
 We have set up our environment using conda and have provided a conda environment yaml file. 
-In order to replicate our environment please download conda from <link> and run 
+In order to replicate our environment please download conda from [here](https://conda.io/projects/conda/en/latest/user-guide/install/linux.html) and run 
 ```
-conda...
+conda env create -f environment.yml
 ```
 
 ## Evaluating the models
