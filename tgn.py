@@ -13,6 +13,7 @@
 
 import os.path as osp
 
+import numpy as np
 import torch
 from sklearn.metrics import average_precision_score, roc_auc_score
 from torch.nn import Linear
@@ -25,6 +26,8 @@ from torch_geometric.nn.models.tgn import (
     LastAggregator,
     LastNeighborLoader,
 )
+
+from tqdm import tqdm
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -185,11 +188,23 @@ def test(loader):
         neighbor_loader.insert(batch.src, batch.dst)
     return float(torch.tensor(aps).mean()), float(torch.tensor(aucs).mean())
 
+val_aps = []
+val_aucs = []
+test_aps = []
+test_aucs = []
 
-for epoch in range(1, 51):
+for epoch in tqdm(range(1, 51)):
     loss = train()
     print(f'Epoch: {epoch:02d}, Loss: {loss:.4f}')
     val_ap, val_auc = test(val_loader)
     test_ap, test_auc = test(test_loader)
+    val_aps.append(val_ap)
+    val_aucs.append(val_aucs)
+    test_aps.append(test_ap)
+    test_aucs.append(test_auc)
     print(f'Val AP: {val_ap:.4f}, Val AUC: {val_auc:.4f}')
     print(f'Test AP: {test_ap:.4f}, Test AUC: {test_auc:.4f}')
+
+print('Average Metrics between runs')
+print(f'Val AP: {np.average(val_aps):.4f} +/- {np.std(val_aps):.4f}, Val AUC: {np.average(val_aucs):.4f} +/- {np.std(val_aucs):.4f}')
+print(f'Test AP: {np.average(test_aps):.4f} +/- {np.std(test_aps):.4f}, Test AUC: {np.average(test_aucs):.4f} +/- {np.std(test_aucs):.4f}')
