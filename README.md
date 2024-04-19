@@ -1,1 +1,15 @@
 # DGEval
+## Setting up the environment
+We have set up our environment using conda and have provided a conda environment yaml file. 
+In order to replicate our environment please download conda from <link> and run 
+```
+conda...
+```
+
+## Evaluating the models
+We have provided a python file for each model/dataset combination we did in order to run any of the evaluations please run 
+```
+python <model>-<dataset>.py
+```
+
+## References
