@@ -31,6 +31,14 @@ cp ../data/JODIE/<dataset-name>/raw/<dataset-name>.csv
 python process.py 
 python -u learn_edge.py -d wikipedia --bs 200 --uniform  --n_degree 20 --agg_method attn --attn_mode prod --gpu 0 --n_head 2 --prefix hello_world
 ```
+
+## Heuristic 
+For running the heuristic we leverage the implementation offered here https://github.com/xkcd1838/bench-DGNN/tree/master
+We provide the config file for running our datasets with the heuristics we are concerned with.
+```
+# We start by cloning the repo
+```
+
 ## References
 1. https://github.com/pyg-team/pytorch_geometric/blob/master/examples/tgn.py
 2. https://github.com/StatsDLMathsRecomSys/Inductive-representation-learning-on-temporal-graphs/blob/master/README.md

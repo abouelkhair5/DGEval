@@ -5,12 +5,14 @@ channels:
   - nvidia
 dependencies:
   - pandas==1.1.0
-  - pytorch
+  - pytorch==2.0.1
   - scikit-learn
   - cuda
-  - pytorch-cuda=12.1
-  - torchaudio
-  - torchvision
+  - pytorch-cuda==11.7
+  - torchaudio==2.0.2
+  - torchvision==0.15.2
   - cudatoolkit=11.1
   - pyg
+  - ipykernel
+  - xgboost
 prefix: /home/aabouelk/anaconda3/envs/tgn
