@@ -37,6 +37,10 @@ For running the heuristic we leverage the implementation offered here https://gi
 We provide the config file for running our datasets with the heuristics we are concerned with.
 ```
 # We start by cloning the repo
+git clone git@github.com:xkcd1838/bench-DGNN.git
+# We provide a config file for each heuristic and dataset combo to run the model with one of our config files
+cd bench-DGNN/experiment/
+python run_exp.py --config_file ../../DGEval/bench-config/j-wiki.yml
 ```
 
 ## References
