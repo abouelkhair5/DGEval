@@ -47,3 +47,4 @@ python run_exp.py --config_file ../../DGEval/bench-config/j-wiki.yml
 1. https://github.com/pyg-team/pytorch_geometric/blob/master/examples/tgn.py
 2. https://github.com/StatsDLMathsRecomSys/Inductive-representation-learning-on-temporal-graphs/blob/master/README.md
 3. https://github.com/xkcd1838/bench-DGNN/tree/299fee7dda057c6e9479bcb713afbc1a7c31b16b
+Note: The complete list of our references and citation is available in the paper PDF added above
