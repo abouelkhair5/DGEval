@@ -1,16 +1,5 @@
-# This code achieves a performance of around 96.60%. However, it is not
-# directly comparable to the results reported by the TGN paper since a
-# slightly different evaluation setup is used here.
-# In particular, predictions in the same batch are made in parallel, i.e.
-# predictions for interactions later in the batch have no access to any
-# information whatsoever about previous interactions in the same batch.
-# On the contrary, when sampling node neighborhoods for interactions later in
-# the batch, the TGN paper code has access to previous interactions in the
-# batch.
-# While both approaches are correct, together with the authors of the paper we
-# decided to present this version here as it is more realsitic and a better
-# test bed for future methods.
-
+# This code is borrowed from the pytorch geometrics examples at
+# https://github.com/pyg-team/pytorch_geometric/blob/master/examples/tgn.py
 import os.path as osp
 
 import numpy as np
